@@ -1,17 +1,27 @@
 import './App.css'
+import logo from './assets/images/logo.png'
+import coin from './assets/images/dollar-1.png'
 
 function App() {
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-100 shadow-sm gap-4 max-w-[1200px] mx-auto">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="text-xl"><img className='w-[60px] h-60px' src={logo} /></a>
         </div>
-        <div className="flex-none">
-          <button className="btn btn-square btn-ghost">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block h-5 w-5 stroke-current"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
-          </button>
+        <div>
+          <ul className='flex gap-4 '>
+            <li><a href='#'>Home</a></li>
+            <li><a href='#'>Fixture</a></li>
+            <li><a href='#'>Teams</a></li>
+            <li><a href='#'>Schedules</a></li>
+          </ul>
+        </div>
+        <div className="flex gap-4">
+         <span>0</span>
+         <span>Coin</span>
+         <img src={coin}/>
         </div>
       </div>
 
