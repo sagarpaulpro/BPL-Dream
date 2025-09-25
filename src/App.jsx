@@ -1,30 +1,24 @@
+import { Suspense } from 'react'
 import './App.css'
-import logo from './assets/images/logo.png'
-import coin from './assets/images/dollar-1.png'
+import AvailablePlayers from './Components/AvailablePlayers/AvailablePlayers'
+import Navbar from './Components/Navbar/Navbar'
+import SelectedPlayers from './Components/SelecetedPlayers/SelectedPlayers'
+import Banner from './Components/Navbar/Banner'
 
+const fetchPlayers = async () => {
+  const res = await fetch('/players.json')
+  return res.json()
+}
 function App() {
-
+  const playersPromise = fetchPlayers()
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm gap-4 max-w-[1200px] mx-auto">
-        <div className="flex-1">
-          <a className="text-xl"><img className='w-[60px] h-60px' src={logo} /></a>
-        </div>
-        <div>
-          <ul className='flex gap-4 '>
-            <li><a href='#'>Home</a></li>
-            <li><a href='#'>Fixture</a></li>
-            <li><a href='#'>Teams</a></li>
-            <li><a href='#'>Schedules</a></li>
-          </ul>
-        </div>
-        <div className="flex gap-4">
-         <span>0</span>
-         <span>Coin</span>
-         <img src={coin}/>
-        </div>
-      </div>
-
+      <Navbar></Navbar>
+      <Banner></Banner>
+      <Suspense fallback={<span className="loading loading-spinner text-primary"></span>}>
+        <AvailablePlayers playersPromise={playersPromise}></AvailablePlayers>
+      </Suspense>
+      <SelectedPlayers></SelectedPlayers>
     </>
   )
 }
