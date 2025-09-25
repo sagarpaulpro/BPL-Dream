@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/images/logo.png'
 import coin from '../../assets/images/dollar-1.png'
-const Navbar = () => {
+const Navbar = ({banlance}) => {
+   
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm gap-4 max-w-[1200px] mx-auto">
@@ -17,7 +18,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex gap-4">
-                    <span>0</span>
+                    <span> $ {banlance}</span>
                     <span>Coin</span>
                     <img src={coin} />
                 </div>
